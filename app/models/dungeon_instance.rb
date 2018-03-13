@@ -1,0 +1,2 @@
+class DungeonInstance < ApplicationRecord
+end

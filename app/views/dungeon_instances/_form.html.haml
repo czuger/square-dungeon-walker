@@ -1,0 +1,13 @@
+= form_for @dungeon_instance do |f|
+  - if @dungeon_instance.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@dungeon_instance.errors.count, "error")} prohibited this dungeon_instance from being saved:"
+      %ul
+        - @dungeon_instance.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :dungeon_data
+    = f.text_field :dungeon_data
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,2 @@
+module DungeonInstancesHelper
+end

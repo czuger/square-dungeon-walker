@@ -1,0 +1,21 @@
+%h1 Listing dungeon_instances
+
+%table
+  %thead
+    %tr
+      %th Dungeon data
+      %th
+      %th
+      %th
+
+  %tbody
+    - @dungeon_instances.each do |dungeon_instance|
+      %tr
+        %td= dungeon_instance.dungeon_data
+        %td= link_to 'Show', dungeon_instance
+        %td= link_to 'Edit', edit_dungeon_instance_path(dungeon_instance)
+        %td= link_to 'Destroy', dungeon_instance, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Dungeon instance', new_dungeon_instance_path
