@@ -1,6 +1,13 @@
 %p#notice= notice
 
+- @directions.each do |d|
+  = link_to d.to_s.humanize, [ @dungeon_instance, { direction: d} ], { method: :patch }
+
+%hr
+
 = image_tag( 'current_room.jpg' )
+
+%hr
 
 = link_to 'Edit', edit_dungeon_instance_path(@dungeon_instance)
 \|

@@ -12,10 +12,9 @@ class DungeonInstancesController < ApplicationController
   # GET /dungeon_instances/1
   # GET /dungeon_instances/1.json
   def show
-    p @dungeon_instance.dungeon_data
-    p @dungeon_instance.dungeon_data.class
     dungeon = Dungeon.from_json( @dungeon_instance.dungeon_data )
     dungeon.draw_current_room( 'app/assets/images/current_room.jpg' )
+    @directions = dungeon.available_directions
   end
 
   # GET /dungeon_instances/new
