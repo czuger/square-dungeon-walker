@@ -12,9 +12,8 @@ class DungeonInstancesController < ApplicationController
   # GET /dungeon_instances/1
   # GET /dungeon_instances/1.json
   def show
-    dungeon = Dungeon.from_json( @dungeon_instance.dungeon_data )
-    dungeon.draw_current_room( 'app/assets/images/current_room.jpg' )
-    @directions = dungeon.available_directions
+    @dungeon.draw_current_room( 'app/assets/images/current_room.jpg' )
+    @directions = @dungeon.available_directions
   end
 
   # GET /dungeon_instances/new
@@ -50,14 +49,9 @@ class DungeonInstancesController < ApplicationController
   # PATCH/PUT /dungeon_instances/1
   # PATCH/PUT /dungeon_instances/1.json
   def update
-    respond_to do |format|
-      if @dungeon_instance.update(dungeon_instance_params)
-        format.html { redirect_to @dungeon_instance, notice: 'Dungeon instance was successfully updated.' }
-        format.json { render :show, status: :ok, location: @dungeon_instance }
-      else
-        format.html { render :edit }
-        format.json { render json: @dungeon_instance.errors, status: :unprocessable_entity }
-      end
+    @dungeon.set_next_room( params[:direction].to_sym)
+    if @dungeon_instance.update(dungeon_data: @dungeon.to_json)
+      redirect_to @dungeon_instance
     end
   end
 
@@ -75,6 +69,7 @@ class DungeonInstancesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_dungeon_instance
       @dungeon_instance = DungeonInstance.find(params[:id])
+      @dungeon = Dungeon.from_json( @dungeon_instance.dungeon_data )
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
