@@ -1,24 +1,7 @@
-# README
+[![Build Status](https://travis-ci.org/czuger/square-dungeon-waker.svg?branch=master)](https://travis-ci.org/czuger/square-dungeon-waker)
+[![Code Climate](https://codeclimate.com/github/czuger/square-dungeon-waker/badges/gpa.svg)](https://codeclimate.com/github/czuger/square-dungeon-waker)
+[![Test Coverage](https://codeclimate.com/github/czuger/square-dungeon-waker/badges/coverage.svg)](https://codeclimate.com/github/czuger/square-dungeon-waker/coverage)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Square Dungeon Walker
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A tool for walking into random dungeons in FantasyGround.
