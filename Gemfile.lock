@@ -1,5 +1,6 @@
-PATH
-  remote: ../square-dungeon-gen
+GIT
+  remote: https://github.com/czuger/square-dungeon-gen.git
+  revision: 35e279b67ef546fb040c86acf2382c789574af53
   specs:
     square-dungeon-gen (1.0.2)
       dd-next-encounters (>= 1.0.1)
