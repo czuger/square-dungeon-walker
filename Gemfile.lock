@@ -1,5 +1,6 @@
-PATH
-  remote: ../square-dungeon-gen
+GIT
+  remote: https://github.com/czuger/square-dungeon-gen.git
+  revision: a6ee07cc97c3f375dcb307ecd9360889c7fd6124
   specs:
     square-dungeon-gen (1.0.0)
       hazard (~> 1)
