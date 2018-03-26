@@ -4,4 +4,4 @@
 
 # Square Dungeon Walker
 
-A tool for walking into random dungeons in FantasyGround.
+A tool for walking into random dungeons in [FantasyGround](https://www.fantasygrounds.com/store/?sys=16&hidecore=1&sort=1).
