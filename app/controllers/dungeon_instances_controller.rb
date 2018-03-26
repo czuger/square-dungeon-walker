@@ -14,6 +14,7 @@ class DungeonInstancesController < ApplicationController
   def show
     @dungeon.draw_current_room( 'app/assets/images/current_room.jpg' )
     @directions = @dungeon.available_directions
+    @dungeon_content = @dungeon.current_room.content_description
   end
 
   # GET /dungeon_instances/new

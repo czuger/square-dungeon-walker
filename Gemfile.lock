@@ -1,6 +1,11 @@
-GIT
-  remote: https://github.com/czuger/square-dungeon-gen.git
-  revision: a6ee07cc97c3f375dcb307ecd9360889c7fd6124
+PATH
+  remote: ../dd-next-encounters
+  specs:
+    dd-next-encounters (1.0.0)
+      hazard (~> 1)
+
+PATH
+  remote: ../square-dungeon-gen
   specs:
     square-dungeon-gen (1.0.0)
       hazard (~> 1)
@@ -211,6 +216,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  dd-next-encounters!
   haml-rails
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)

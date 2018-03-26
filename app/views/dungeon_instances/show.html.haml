@@ -1,7 +1,9 @@
 %p#notice= notice
 
-- @directions.each do |d|
-  = link_to d.to_s.humanize, [ @dungeon_instance, { direction: d} ], { method: :patch }
+%p
+  Room contains
+%p
+  = @dungeon_content
 
 %hr
 
