@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/czuger/square-dungeon-waker.svg?branch=master)](https://travis-ci.org/czuger/square-dungeon-waker)
-[![Code Climate](https://codeclimate.com/github/czuger/square-dungeon-waker/badges/gpa.svg)](https://codeclimate.com/github/czuger/square-dungeon-waker)
-[![Test Coverage](https://codeclimate.com/github/czuger/square-dungeon-waker/badges/coverage.svg)](https://codeclimate.com/github/czuger/square-dungeon-waker/coverage)
+[![Build Status](https://travis-ci.org/czuger/square-dungeon-walker.svg?branch=master)](https://travis-ci.org/czuger/square-dungeon-walker)
+[![Maintainability](https://api.codeclimate.com/v1/badges/bf9ca3f6947f410356cd/maintainability)](https://codeclimate.com/github/czuger/square-dungeon-walker/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/bf9ca3f6947f410356cd/test_coverage)](https://codeclimate.com/github/czuger/square-dungeon-walker/test_coverage)
 
 # Square Dungeon Walker
 
