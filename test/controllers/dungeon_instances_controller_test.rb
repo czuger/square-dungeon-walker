@@ -28,13 +28,8 @@ class DungeonInstancesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_dungeon_instance_url(@dungeon_instance)
-    assert_response :success
-  end
-
   test "should update dungeon_instance" do
-    patch dungeon_instance_url(@dungeon_instance), params: { dungeon_instance: { dungeon_data: @dungeon_instance.dungeon_data } }
+    patch dungeon_instance_url(@dungeon_instance), params: { direction: :top }
     assert_redirected_to dungeon_instance_url(@dungeon_instance)
   end
 

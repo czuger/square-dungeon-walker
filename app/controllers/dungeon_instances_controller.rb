@@ -21,17 +21,12 @@ class DungeonInstancesController < ApplicationController
     @dungeon_instance = DungeonInstance.new
   end
 
-  # GET /dungeon_instances/1/edit
-  def edit
-  end
-
   # POST /dungeon_instances
   # POST /dungeon_instances.json
   def create
 
     dungeon = Dungeon.new( 5 )
-    dungeon.generate_dungeon
-    pp dungeon.to_json
+    dungeon.generate
 
     @dungeon_instance = DungeonInstance.new( dungeon_data: dungeon.to_json )
 
