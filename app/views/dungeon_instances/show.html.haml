@@ -24,7 +24,7 @@
 
 
   - if Rails.env.production?
-    = image_tag( "rooms/current_room_#{@dungeon_instance.id}.jpg", class: :current_room )
+    = image_tag( "/rooms/current_room_#{@dungeon_instance.id}.jpg", class: :current_room )
   - else
     = image_tag( 'current_room.jpg', class: :current_room )
 
