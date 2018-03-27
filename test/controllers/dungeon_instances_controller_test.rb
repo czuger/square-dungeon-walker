@@ -10,10 +10,10 @@ class DungeonInstancesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_dungeon_instance_url
-    assert_response :success
-  end
+  # test "should get new" do
+  #   get new_dungeon_instance_url
+  #   assert_response :success
+  # end
 
   test "should create dungeon_instance" do
     assert_difference('DungeonInstance.count') do

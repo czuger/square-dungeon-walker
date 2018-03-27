@@ -12,8 +12,8 @@ class DungeonInstancesController < ApplicationController
   # GET /dungeon_instances/1
   # GET /dungeon_instances/1.json
   def show
-    if Rails.env == 'production'
-      @dungeon.draw_current_room( "public/rooms/current_room_#{@dungeon.id}.jpg" )
+    if Rails.env.production?
+      @dungeon.draw_current_room( "public/rooms/current_room_#{@dungeon_instance.id}.jpg" )
     else
       @dungeon.draw_current_room( 'app/assets/images/current_room.jpg' )
     end
