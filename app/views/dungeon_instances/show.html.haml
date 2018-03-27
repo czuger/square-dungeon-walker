@@ -2,7 +2,7 @@
 
 %p
   = link_to 'Dungeons list', dungeon_instances_path
-  = link_to 'Download room', "/rooms/current_room_#{@dungeon_instance.id}.jpg"
+  = link_to 'Download room', "/rooms/current_room_#{@dungeon_instance.id}.jpg", download: "current_room_#{@dungeon_instance.id}.jpg"
 
 %p
   Room contains
