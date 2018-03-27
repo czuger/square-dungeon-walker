@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/czuger/square-dungeon-gen.git
-  revision: 35e279b67ef546fb040c86acf2382c789574af53
+  revision: 89bf4fa8b661935ea78968e4ece36611ec4b9bd7
   specs:
-    square-dungeon-gen (1.0.2)
+    square-dungeon-gen (1.1.0)
       dd-next-encounters (>= 1.0.1)
       hazard (~> 1)
       rmagick (~> 2.16)
@@ -225,7 +225,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
-  square-dungeon-gen!
+  square-dungeon-gen (>= 1.1.0)!
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)

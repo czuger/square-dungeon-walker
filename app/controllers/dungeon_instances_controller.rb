@@ -19,13 +19,13 @@ class DungeonInstancesController < ApplicationController
 
   # GET /dungeon_instances/new
   def new
-    @dungeon_instance = DungeonInstance.new
+    # Maybe for future usage
+    # @dungeon_instance = DungeonInstance.new
   end
 
   # POST /dungeon_instances
   # POST /dungeon_instances.json
   def create
-
     dungeon = Dungeon.new( 5 )
     dungeon.generate
 
@@ -34,10 +34,8 @@ class DungeonInstancesController < ApplicationController
     respond_to do |format|
       if @dungeon_instance.save
         format.html { redirect_to @dungeon_instance, notice: 'Dungeon instance was successfully created.' }
-        format.json { render :show, status: :created, location: @dungeon_instance }
       else
-        format.html { render :new }
-        format.json { render json: @dungeon_instance.errors, status: :unprocessable_entity }
+        format.html { redirect_to dungeon_instances_path, error: 'Dungeon instance was successfully created.'  }
       end
     end
   end

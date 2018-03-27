@@ -3,7 +3,7 @@
 %table
   %thead
     %tr
-      %th Dungeon data
+      %th Dungeon id
       %th
       %th
       %th
@@ -11,10 +11,10 @@
   %tbody
     - @dungeon_instances.each do |dungeon_instance|
       %tr
-        %td= dungeon_instance.dungeon_data
+        %td= dungeon_instance.id
         %td= link_to 'Show', dungeon_instance
         %td= link_to 'Destroy', dungeon_instance, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Dungeon instance', new_dungeon_instance_path
+= link_to 'New Dungeon', dungeon_instances_path, method: :create
