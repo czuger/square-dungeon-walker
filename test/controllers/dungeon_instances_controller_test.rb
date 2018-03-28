@@ -17,7 +17,7 @@ class DungeonInstancesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create dungeon_instance" do
     assert_difference('DungeonInstance.count') do
-      post dungeon_instances_url, params: { dungeon_instance: { difficulty: :medium } }
+      post dungeon_instances_url, params: { dungeon_instance: { difficulty: :medium, hero1_level: 1, hero2_level: 1, hero3_level: 1 } }
     end
 
     assert_redirected_to dungeon_instance_url(DungeonInstance.last)

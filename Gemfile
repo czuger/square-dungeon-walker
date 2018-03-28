@@ -61,6 +61,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # gem 'square-dungeon-gen', path: '../square-dungeon-gen'
-gem 'square-dungeon-gen', '>= 1.1.0', :git => 'https://github.com/czuger/square-dungeon-gen.git'
+gem 'square-dungeon-gen', '>= 1.2.1', :git => 'https://github.com/czuger/square-dungeon-gen.git'
 
 gem 'haml-rails'

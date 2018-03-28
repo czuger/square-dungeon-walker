@@ -32,7 +32,14 @@ class DungeonInstancesController < ApplicationController
   # POST /dungeon_instances
   # POST /dungeon_instances.json
   def create
-    dungeon = Dungeon.new( 5 )
+
+    party = []
+    (1..6).each do |p_number|
+      level = params[:dungeon_instance]["hero#{p_number}_level"].to_i
+      party << level if level > 0
+    end
+
+    dungeon = Dungeon.new( 5, party, params[:dungeon_instance][:difficulty].to_sym )
     dungeon.generate
 
     @dungeon_instance = DungeonInstance.new( dungeon_instance_params.merge( dungeon_data: dungeon.to_json ) )
