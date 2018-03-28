@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20180328042733) do
     t.string "dungeon_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "difficulty", default: "easy", null: false
+    t.string "difficulty", default: "medium", null: false
     t.integer "hero1_level", default: 1, null: false
     t.integer "hero2_level"
     t.integer "hero3_level"
