@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180313103003) do
+ActiveRecord::Schema.define(version: 20180328042733) do
 
   create_table "dungeon_data", force: :cascade do |t|
     t.string "content"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20180313103003) do
     t.string "dungeon_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "difficulty", default: "easy", null: false
+    t.integer "hero1_level", default: 1, null: false
+    t.integer "hero2_level"
+    t.integer "hero3_level"
+    t.integer "hero4_level"
+    t.integer "hero5_level"
+    t.integer "hero6_level"
   end
 
 end

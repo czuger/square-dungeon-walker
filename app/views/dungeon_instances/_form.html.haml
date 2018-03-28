@@ -7,7 +7,13 @@
           %li= message
 
   .field
-    = f.label :dungeon_data
-    = f.text_field :dungeon_data
+    = f.label :difficulty
+    = f.select :difficulty, DungeonInstancesController::DIFFICULTY.map{ |e| [ e.to_s.humanize, e ] }, { include_blank: true }
+
+  - 1.upto(6).each do |level|
+    .field
+      = f.label "hero#{level}_level".to_sym, "hero#{level} level".humanize
+      = f.number_field "hero#{level}_level".to_sym, in: 1..20
+
   .actions
     = f.submit 'Save'

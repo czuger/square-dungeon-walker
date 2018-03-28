@@ -3,6 +3,8 @@ require 'dungeon'
 class DungeonInstancesController < ApplicationController
   before_action :set_dungeon_instance, only: [:show, :edit, :update, :destroy]
 
+  DIFFICULTY = [:easy, :medium, :hard, :deadly]
+
   # GET /dungeon_instances
   # GET /dungeon_instances.json
   def index
@@ -24,8 +26,7 @@ class DungeonInstancesController < ApplicationController
 
   # GET /dungeon_instances/new
   def new
-    # Maybe for future usage
-    # @dungeon_instance = DungeonInstance.new
+    @dungeon_instance = DungeonInstance.new
   end
 
   # POST /dungeon_instances
@@ -34,7 +35,7 @@ class DungeonInstancesController < ApplicationController
     dungeon = Dungeon.new( 5 )
     dungeon.generate
 
-    @dungeon_instance = DungeonInstance.new( dungeon_data: dungeon.to_json )
+    @dungeon_instance = DungeonInstance.new( dungeon_instance_params.merge( dungeon_data: dungeon.to_json ) )
 
     respond_to do |format|
       if @dungeon_instance.save
@@ -73,6 +74,7 @@ class DungeonInstancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dungeon_instance_params
-      params.require(:dungeon_instance).permit(:dungeon_data)
+      params.require(:dungeon_instance).permit(:difficulty, :hero1_level, :hero2_level,
+         :hero3_level, :hero4_level, :hero5_level, :hero6_level )
     end
 end
