@@ -26,7 +26,7 @@ class DungeonInstancesController < ApplicationController
 
   # GET /dungeon_instances/new
   def new
-    @dungeon_instance = DungeonInstance.new
+    @dungeon_instance = DungeonInstance.new( size: 5 )
   end
 
   # POST /dungeon_instances
@@ -39,7 +39,7 @@ class DungeonInstancesController < ApplicationController
       party << level if level > 0
     end
 
-    dungeon = Dungeon.new( 5, party, params[:dungeon_instance][:difficulty].to_sym )
+    dungeon = Dungeon.new( params[:dungeon_instance][:size].to_i, party, params[:dungeon_instance][:difficulty].to_sym )
     dungeon.generate
 
     @dungeon_instance = DungeonInstance.new( dungeon_instance_params.merge( dungeon_data: dungeon.to_json ) )
@@ -82,6 +82,6 @@ class DungeonInstancesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def dungeon_instance_params
       params.require(:dungeon_instance).permit(:difficulty, :hero1_level, :hero2_level,
-         :hero3_level, :hero4_level, :hero5_level, :hero6_level )
+         :hero3_level, :hero4_level, :hero5_level, :hero6_level, :size )
     end
 end

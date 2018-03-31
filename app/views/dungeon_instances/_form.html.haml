@@ -10,6 +10,10 @@
     = f.label :difficulty
     = f.select :difficulty, DungeonInstancesController::DIFFICULTY.map{ |e| [ e.to_s.humanize, e ] }
 
+  .field
+    = f.label :size
+    = f.number_field :size, in: 1..12
+
   - 1.upto(6).each do |level|
     .field
       = f.label "hero#{level}_level".to_sym, "hero#{level} level".humanize
