@@ -1,7 +1,7 @@
 require 'dungeon'
 
 class DungeonInstancesController < ApplicationController
-  before_action :set_dungeon_instance, only: [:show, :edit, :update, :destroy]
+  before_action :set_dungeon_instance, only: [:show, :edit, :update]
 
   DIFFICULTY = [:easy, :medium, :hard, :deadly]
 
@@ -65,6 +65,7 @@ class DungeonInstancesController < ApplicationController
   # DELETE /dungeon_instances/1
   # DELETE /dungeon_instances/1.json
   def destroy
+    @dungeon_instance = DungeonInstance.find(params[:id])
     @dungeon_instance.destroy
     respond_to do |format|
       format.html { redirect_to dungeon_instances_url, notice: 'Dungeon instance was successfully destroyed.' }
