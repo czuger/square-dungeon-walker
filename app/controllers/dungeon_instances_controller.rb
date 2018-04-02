@@ -1,7 +1,7 @@
 require 'dungeon'
 
 class DungeonInstancesController < ApplicationController
-  before_action :set_dungeon_instance, only: [:show, :edit, :update]
+  before_action :set_dungeon_instance, only: [:show, :edit, :update, :clear_room]
 
   DIFFICULTY = [:easy, :medium, :hard, :deadly]
 
@@ -32,7 +32,6 @@ class DungeonInstancesController < ApplicationController
   # POST /dungeon_instances
   # POST /dungeon_instances.json
   def create
-
     party = []
     (1..6).each do |p_number|
       level = params[:dungeon_instance]["hero#{p_number}_level"].to_i
@@ -62,6 +61,13 @@ class DungeonInstancesController < ApplicationController
     end
   end
 
+  def clear_room
+    @dungeon.current_room.clear
+    if @dungeon_instance.update(dungeon_data: @dungeon.to_json)
+      redirect_to @dungeon_instance
+    end
+  end
+
   # DELETE /dungeon_instances/1
   # DELETE /dungeon_instances/1.json
   def destroy
@@ -76,7 +82,7 @@ class DungeonInstancesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dungeon_instance
-      @dungeon_instance = DungeonInstance.find(params[:id])
+      @dungeon_instance = DungeonInstance.find(params[:id]||params[:dungeon_instance_id])
       @dungeon = Dungeon.from_json( @dungeon_instance.dungeon_data )
     end
 

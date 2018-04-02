@@ -9,6 +9,9 @@
 %p
   = @dungeon_content
 
+%p
+  = link_to 'Clear room', dungeon_instance_clear_room_path( @dungeon_instance ), method: :patch
+
 %hr
 
 #top-arrow-div
