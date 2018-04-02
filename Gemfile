@@ -64,4 +64,4 @@ gem 'dd-next-encounters', '>= 2.0', :git => 'https://github.com/czuger/dd-next-e
 # gem 'square-dungeon-gen', path: '../square-dungeon-gen'
 gem 'square-dungeon-gen', '>= 1.4.0', :git => 'https://github.com/czuger/square-dungeon-gen.git'
 
-gem 'haml-rails'+
+gem 'haml-rails'
