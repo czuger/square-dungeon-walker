@@ -38,8 +38,10 @@ class DungeonInstancesController < ApplicationController
       party << level if level > 0
     end
 
-    dungeon = Dungeon.new( params[:dungeon_instance][:size].to_i, party, params[:dungeon_instance][:difficulty].to_sym )
+    dungeon = Dungeon.new( params[:dungeon_instance][:size].to_i, party,
+                           encounters_difficulty: params[:dungeon_instance][:difficulty].to_sym )
     dungeon.generate
+    # p dungeon.to_json
 
     @dungeon_instance = DungeonInstance.new( dungeon_instance_params.merge( dungeon_data: dungeon.to_json ) )
 

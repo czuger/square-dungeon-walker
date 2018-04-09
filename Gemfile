@@ -60,8 +60,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# gem 'dd-next-encounters', '>= 2.0', :git => 'https://github.com/czuger/dd-next-encounters.git'
+gem 'square-dungeon-gen', '>= 1.4.2', :git => 'https://github.com/czuger/square-dungeon-gen.git'
 # gem 'square-dungeon-gen', path: '../square-dungeon-gen'
-gem 'square-dungeon-gen', '>= 1.4.1', :git => 'https://github.com/czuger/square-dungeon-gen.git'
 
 gem 'haml-rails'

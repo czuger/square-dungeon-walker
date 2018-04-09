@@ -25,3 +25,5 @@
 .idea
 
 coverage/
+
+/app/assets/images/current_room.jpg
