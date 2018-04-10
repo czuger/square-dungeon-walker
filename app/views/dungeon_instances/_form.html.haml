@@ -1,23 +1,30 @@
-= form_for @dungeon_instance do |f|
-  - if @dungeon_instance.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@dungeon_instance.errors.count, "error")} prohibited this dungeon_instance from being saved:"
-      %ul
-        - @dungeon_instance.errors.full_messages.each do |message|
-          %li= message
+.row
+  = form_for @dungeon_instance do |f|
+    - if @dungeon_instance.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@dungeon_instance.errors.count, "error")} prohibited this dungeon_instance from being saved:"
+        %ul
+          - @dungeon_instance.errors.full_messages.each do |message|
+            %li= message
 
-  .field
-    = f.label :difficulty
-    = f.select :difficulty, DungeonInstancesController::DIFFICULTY.map{ |e| [ e.to_s.humanize, e ] }
+    .row
+      .col
+        .field
+          = f.label :difficulty
+          = f.select :difficulty, DungeonInstancesController::DIFFICULTY.map{ |e| [ e.to_s.humanize, e ] }, {}, class: 'form-control'
 
-  .field
-    = f.label :size
-    = f.number_field :size, in: 1..12
+      .col
+        .field
+          = f.label :size
+          = f.number_field :size, in: 1..12, class: 'form-control'
 
-  - 1.upto(6).each do |level|
-    .field
-      = f.label "hero#{level}_level".to_sym, "hero#{level} level".humanize
-      = f.number_field "hero#{level}_level".to_sym, in: 1..20
+    .row
+      - 1.upto(6).each do |level|
+        .col
+          .field
+            = f.label "hero#{level}_level".to_sym, "hero#{level} level".humanize
+            = f.number_field "hero#{level}_level".to_sym, in: 1..20, class: 'form-control'
 
-  .actions
-    = f.submit 'Save'
+    .row
+      .actions
+        = f.submit 'Save', class: 'form-control'

@@ -64,3 +64,5 @@ gem 'square-dungeon-gen', '>= 1.4.2', :git => 'https://github.com/czuger/square-
 # gem 'square-dungeon-gen', path: '../square-dungeon-gen'
 
 gem 'haml-rails'
+gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
