@@ -1,6 +1,6 @@
-%h1 Listing dungeon_instances
+%h1 Current dungeons
 
-%table
+%table.table
   %thead
     %tr
       %th Dungeon id
@@ -12,9 +12,10 @@
     - @dungeon_instances.each do |dungeon_instance|
       %tr
         %td= dungeon_instance.id
+        %td= link_to 'Play', dungeon_instance_play_path( dungeon_instance )
         %td= link_to 'Show', dungeon_instance
         %td= link_to 'Destroy', dungeon_instance, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Dungeon', new_dungeon_instance_path
+= link_to 'Create a dungeon', new_dungeon_instance_path, class: 'btn btn-primary'

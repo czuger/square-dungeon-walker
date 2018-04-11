@@ -26,5 +26,6 @@
             = f.number_field "hero#{level}_level".to_sym, in: 1..20, class: 'form-control'
 
     .row
-      .actions
-        = f.submit 'Save', class: 'form-control'
+      .col
+        .actions
+          = f.submit 'Create', class: 'form-control btn-warning'

@@ -1,7 +1,7 @@
 require 'dungeon'
 
 class DungeonInstancesController < ApplicationController
-  before_action :set_dungeon_instance, only: [:show, :edit, :update, :clear_room]
+  before_action :set_dungeon_instance, only: [:show, :play, :edit, :update, :clear_room]
 
   DIFFICULTY = [:easy, :medium, :hard, :deadly]
 
@@ -13,7 +13,7 @@ class DungeonInstancesController < ApplicationController
 
   # GET /dungeon_instances/1
   # GET /dungeon_instances/1.json
-  def show
+  def play
     if Rails.env.production?
       @dungeon.draw_current_room( "public/rooms/current_room_#{@dungeon_instance.id}.jpg" )
     else
@@ -24,9 +24,12 @@ class DungeonInstancesController < ApplicationController
     @dungeon_content = @dungeon.current_room.content_description
   end
 
+  def show
+  end
+
   # GET /dungeon_instances/new
   def new
-    @dungeon_instance = DungeonInstance.new( size: 5 )
+    @dungeon_instance = DungeonInstance.new( size: 5, hero2_level: 1, hero3_level: 1 )
   end
 
   # POST /dungeon_instances
@@ -47,7 +50,7 @@ class DungeonInstancesController < ApplicationController
 
     respond_to do |format|
       if @dungeon_instance.save
-        format.html { redirect_to @dungeon_instance, notice: 'Dungeon instance was successfully created.' }
+        format.html { redirect_to dungeon_instance_play_path( @dungeon_instance ), notice: 'Dungeon instance was successfully created.' }
       else
         format.html { redirect_to dungeon_instances_path, error: 'Dungeon instance was successfully created.'  }
       end
