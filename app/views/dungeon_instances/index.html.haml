@@ -3,7 +3,9 @@
 %table.table
   %thead
     %tr
-      %th Dungeon id
+      %th Size
+      %th Party
+      %th Difficulty
       %th
       %th
       %th
@@ -11,7 +13,9 @@
   %tbody
     - @dungeon_instances.each do |dungeon_instance|
       %tr
-        %td= dungeon_instance.id
+        %td= dungeon_instance.size
+        %td= 1.upto(6).map{ |i| dungeon_instance.send( "hero#{i}_level" ) }.compact
+        %td= dungeon_instance.difficulty
         %td= link_to 'Play', dungeon_instance_play_path( dungeon_instance ), class: 'btn btn-primary'
         %td= link_to 'Show', dungeon_instance, class: 'btn btn-primary'
         %td= link_to 'Destroy', dungeon_instance, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
