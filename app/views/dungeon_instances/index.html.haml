@@ -12,9 +12,9 @@
     - @dungeon_instances.each do |dungeon_instance|
       %tr
         %td= dungeon_instance.id
-        %td= link_to 'Play', dungeon_instance_play_path( dungeon_instance )
-        %td= link_to 'Show', dungeon_instance
-        %td= link_to 'Destroy', dungeon_instance, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Play', dungeon_instance_play_path( dungeon_instance ), class: 'btn btn-primary'
+        %td= link_to 'Show', dungeon_instance, class: 'btn btn-primary'
+        %td= link_to 'Destroy', dungeon_instance, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
 
 %br
 

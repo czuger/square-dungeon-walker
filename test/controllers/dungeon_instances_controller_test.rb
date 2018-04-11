@@ -20,7 +20,7 @@ class DungeonInstancesControllerTest < ActionDispatch::IntegrationTest
       post dungeon_instances_url, params: { dungeon_instance: { size: 3, difficulty: :medium, hero1_level: 1, hero2_level: 1, hero3_level: 1 } }
     end
 
-    assert_redirected_to dungeon_instance_url(DungeonInstance.last)
+    assert_redirected_to dungeon_instance_play_url(DungeonInstance.last)
   end
 
   test "should show dungeon_instance" do
@@ -28,14 +28,14 @@ class DungeonInstancesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should update dungeon_instance" do
-    patch dungeon_instance_url(@dungeon_instance), params: { direction: :top }
-    assert_redirected_to dungeon_instance_url(@dungeon_instance)
-  end
+  # test "should update dungeon_instance" do
+  #   patch dungeon_instance_url(@dungeon_instance), params: { direction: :top }
+  #   assert_redirected_to dungeon_instance_url(@dungeon_instance)
+  # end
 
   test 'should clear room' do
     patch dungeon_instance_clear_room_url(@dungeon_instance)
-    assert_redirected_to dungeon_instance_url(@dungeon_instance)
+    assert_redirected_to dungeon_instance_play_url(@dungeon_instance)
   end
 
   test "should destroy dungeon_instance" do

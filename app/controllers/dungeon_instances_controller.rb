@@ -59,17 +59,17 @@ class DungeonInstancesController < ApplicationController
 
   # PATCH/PUT /dungeon_instances/1
   # PATCH/PUT /dungeon_instances/1.json
-  def update
+  def move
     @dungeon.set_next_room( params[:direction].to_sym)
     if @dungeon_instance.update(dungeon_data: @dungeon.to_json)
-      redirect_to @dungeon_instance
+      redirect_to dungeon_instance_play_path( @dungeon_instance )
     end
   end
 
   def clear_room
     @dungeon.current_room.clear
     if @dungeon_instance.update(dungeon_data: @dungeon.to_json)
-      redirect_to @dungeon_instance
+      redirect_to dungeon_instance_play_path( @dungeon_instance )
     end
   end
 
