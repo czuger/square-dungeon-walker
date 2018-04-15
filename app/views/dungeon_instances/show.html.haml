@@ -7,4 +7,4 @@
   = link_to 'Dungeons list', dungeon_instances_path
 
 %p
-  = @dungeon_instance.dungeon_data
+  = text_area_tag :dungeon_desc, @dungeon_instance.dungeon_data, size: '120x30', disabled: true
