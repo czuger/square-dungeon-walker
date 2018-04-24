@@ -28,7 +28,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   test 'should create' do
     get '/auth/google_oauth2'
     follow_redirect!
-    assert_redirected_to '/'
+    assert_redirected_to dungeon_instances_url
   end
 
 end

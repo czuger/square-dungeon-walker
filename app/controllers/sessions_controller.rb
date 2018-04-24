@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
   def new
-    p :foo
   end
 
   def create
@@ -12,7 +11,9 @@ class SessionsController < ApplicationController
       user.email = ah.info.email
     end
 
-    redirect_to '/'
+    session[:user_id] = @user.id
+
+    redirect_to dungeon_instances_path
   end
 
   protected

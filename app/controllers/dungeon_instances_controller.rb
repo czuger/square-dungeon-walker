@@ -1,6 +1,8 @@
 require 'dungeon'
 
 class DungeonInstancesController < ApplicationController
+
+  before_action :require_logged_in!
   before_action :set_dungeon_instance, only: [:show, :play, :edit, :move, :clear_room]
 
   DIFFICULTY = [:easy, :medium, :hard, :deadly]
