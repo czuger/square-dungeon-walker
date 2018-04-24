@@ -12,11 +12,8 @@
 
 ActiveRecord::Schema.define(version: 20180331100832) do
 
-  create_table "dungeon_data", force: :cascade do |t|
-    t.string "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "dungeon_instances", force: :cascade do |t|
     t.string "dungeon_data"
