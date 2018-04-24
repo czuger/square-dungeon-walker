@@ -9,11 +9,8 @@
   %body
 
     .container
-      - if flash.alert && flash.alert.any?
-        .alert.alert-danger
-          %ul
-            - flash.alert.each do |msg|
-              %li= msg.join( ' : ' )
+      - if flash.alert
+        .alert.alert-danger= flash.notice
       - elsif flash.notice
         .alert.alert-success= flash.notice
 
