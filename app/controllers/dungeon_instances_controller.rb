@@ -10,7 +10,7 @@ class DungeonInstancesController < ApplicationController
   # GET /dungeon_instances
   # GET /dungeon_instances.json
   def index
-    @dungeon_instances = DungeonInstance.all
+    @dungeon_instances = current_user.dungeon_instances.all
   end
 
   # GET /dungeon_instances/1
@@ -51,7 +51,7 @@ class DungeonInstancesController < ApplicationController
     @dungeon_instance = DungeonInstance.new( dungeon_instance_params.merge( dungeon_data: dungeon.to_json ) )
 
     respond_to do |format|
-      if @dungeon_instance.save
+      if current_user.dungeon_instances << @dungeon_instance
         format.html { redirect_to dungeon_instance_play_path( @dungeon_instance ), notice: 'Dungeon instance was successfully created.' }
       else
         format.html { redirect_to dungeon_instances_path, error: 'Dungeon instance was successfully created.'  }
@@ -78,7 +78,7 @@ class DungeonInstancesController < ApplicationController
   # DELETE /dungeon_instances/1
   # DELETE /dungeon_instances/1.json
   def destroy
-    @dungeon_instance = DungeonInstance.find(params[:id])
+    @dungeon_instance = @current_user.dungeon_instances.find(params[:id])
     @dungeon_instance.destroy
     respond_to do |format|
       format.html { redirect_to dungeon_instances_url, notice: 'Dungeon instance was successfully destroyed.' }
@@ -89,7 +89,7 @@ class DungeonInstancesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dungeon_instance
-      @dungeon_instance = DungeonInstance.find(params[:id]||params[:dungeon_instance_id])
+      @dungeon_instance = current_user.dungeon_instances.find(params[:id]||params[:dungeon_instance_id])
       @dungeon = Dungeon.from_json( @dungeon_instance.dungeon_data )
     end
 

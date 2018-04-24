@@ -1,8 +1,19 @@
 require 'test_helper'
 
 class DungeonInstancesControllerTest < ActionDispatch::IntegrationTest
+
   setup do
-    @dungeon_instance = dungeon_instances(:one)
+    OmniAuth.config.test_mode = true
+
+    @dungeon_instance = create( :dungeon_instance )
+    $google_auth_hash[:uid] = @dungeon_instance.user.uid
+    OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new    $google_auth_hash
+    get '/auth/google_oauth2'
+    follow_redirect!
+  end
+
+  teardown do
+    OmniAuth.config.test_mode = false
   end
 
   test "should get index" do

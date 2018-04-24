@@ -4,21 +4,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     OmniAuth.config.test_mode = true
-    OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new    (
-      {
-        :provider => 'google_oauth2',
-        :uid => '123545',
-        info: {
-          name: 'Foo Bar',
-          email: 'foo_bar@gmail.com'
-        },
-        credentials: {
-            token: 123456,
-            expires_at: 123456789
-        }
-      }
-    )
-
+    OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new    $google_auth_hash
   end
 
   teardown do

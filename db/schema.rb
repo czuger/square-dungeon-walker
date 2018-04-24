@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180424092201) do
+ActiveRecord::Schema.define(version: 20180424113309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20180424092201) do
     t.integer "hero5_level"
     t.integer "hero6_level"
     t.integer "size", default: 5, null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_dungeon_instances_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,4 +40,5 @@ ActiveRecord::Schema.define(version: 20180424092201) do
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
+  add_foreign_key "dungeon_instances", "users"
 end
