@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   root 'sessions#new'
 
-  get '/auth/:provider/callback', to: 'sessions#create'
+  # get '/auth/:provider/callback', to: 'sessions#create'
   # post '/auth/:provider/callback', to: 'sessions#create'
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: 'sessions#failure', via: [:get, :post]
 
 end

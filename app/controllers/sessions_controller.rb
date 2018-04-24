@@ -16,6 +16,10 @@ class SessionsController < ApplicationController
     redirect_to dungeon_instances_path
   end
 
+  def failure
+    redirect_to new_sessions_path, alert: "Authentication failed, please try again."
+  end
+
   protected
 
   def auth_hash

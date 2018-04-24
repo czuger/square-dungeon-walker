@@ -9,6 +9,15 @@
   %body
 
     .container
+      - if flash.alert && flash.alert.any?
+        .alert.alert-danger
+          %ul
+            - flash.alert.each do |msg|
+              %li= msg.join( ' : ' )
+      - elsif flash.notice
+        .alert.alert-success= flash.notice
+
+    .container
       = yield
 
     %footer.footer
