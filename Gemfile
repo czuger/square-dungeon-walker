@@ -67,3 +67,6 @@ gem 'square-dungeon-gen', '>= 1.5.1', :git => 'https://github.com/czuger/square-
 gem 'haml-rails'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
+
+# gem 'omniauth'
+gem 'omniauth-google-oauth2'

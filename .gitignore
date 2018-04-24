@@ -27,3 +27,4 @@
 coverage/
 
 /app/assets/images/current_room.jpg
+config/omniauth.yml
