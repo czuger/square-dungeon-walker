@@ -10,9 +10,12 @@
 
     .container
       - if flash.alert
-        .alert.alert-danger= flash.notice
+        .alert.alert-danger= flash.alert
       - elsif flash.notice
         .alert.alert-success= flash.notice
+
+    .container
+      = link_to 'signout', signout_path
 
     .container
       = yield

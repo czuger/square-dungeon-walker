@@ -20,6 +20,11 @@ class SessionsController < ApplicationController
     redirect_to new_sessions_path, alert: "Authentication failed, please try again."
   end
 
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_url
+  end
+
   protected
 
   def auth_hash
