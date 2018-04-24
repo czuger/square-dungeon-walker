@@ -6,6 +6,7 @@ class DungeonInstancesControllerTest < ActionDispatch::IntegrationTest
     OmniAuth.config.test_mode = true
 
     @dungeon_instance = create( :dungeon_instance )
+
     $google_auth_hash[:uid] = @dungeon_instance.user.uid
     OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new    $google_auth_hash
     get '/auth/google_oauth2'
