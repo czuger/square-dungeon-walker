@@ -1,0 +1,10 @@
+- if controller_name == 'dungeon_instances' && action_name == 'indexs'
+  = link_to 'Create a dungeon', new_dungeon_instance_path, class: 'btn btn-primary'
+
+- if controller_name == 'dungeon_instances' && action_name == 'play'
+  = link_to 'Dungeons list', dungeon_instances_path, class: 'btn btn-primary'
+  = link_to 'Download room', "/rooms/current_room_#{@dungeon_instance.id}.jpg", download: "current_room_#{@dungeon_instance.id}.jpg", class: 'btn btn-secondary'
+  = link_to 'Clear room', dungeon_instance_clear_room_path( @dungeon_instance ), method: :patch, class: 'btn btn-warning'
+
+- if @current_user
+  = link_to 'Signout', signout_path,  class: 'btn btn-danger'

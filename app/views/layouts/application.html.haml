@@ -15,7 +15,7 @@
         .alert.alert-success= flash.notice
 
     .container
-      = link_to 'signout', signout_path
+      = render partial: 'layouts/menu'
 
     .container
       = yield
