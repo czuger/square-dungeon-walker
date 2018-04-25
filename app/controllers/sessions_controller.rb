@@ -1,12 +1,14 @@
 class SessionsController < ApplicationController
 
+  skip_before_action :verify_authenticity_token, if: -> { Rails.env.development? }
+
   def new
   end
 
   def create
     ah = auth_hash
 
-    @user = User.find_or_create_by!(uid: ah.uid) do |user|
+    @user = User.find_or_create_by!(provider: ah.provider, uid: ah.uid) do |user|
       user.name = ah.info.name
       user.email = ah.info.email
     end
