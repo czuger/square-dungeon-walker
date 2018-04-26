@@ -1,10 +1,10 @@
 GIT
   remote: https://github.com/czuger/square-dungeon-gen.git
-  revision: fc15a3e82c75abd66a988f10a8300850481005e5
+  revision: aeea93e4a31886f0c69a32fb1754609d3c29cf05
   specs:
-    square-dungeon-gen (1.5.1)
-      dd-next-encounters (>= 2.0.2)
-      hazard (~> 1)
+    square-dungeon-gen (1.5.3)
+      dd-next-encounters (~> 3.0, >= 3.0.1)
+      hazard (~> 1.2)
       rmagick (~> 2.16)
 
 GEM
@@ -123,7 +123,7 @@ GEM
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
     hashie (3.5.7)
-    hazard (1.0.4)
+    hazard (1.2.1)
     html2haml (2.2.0)
       erubis (~> 2.7.0)
       haml (>= 4.0, < 6)
@@ -302,7 +302,7 @@ DEPENDENCIES
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
-  square-dungeon-gen (>= 1.5.1)!
+  square-dungeon-gen (~> 1.5, >= 1.5.3)!
   therubyracer
   tzinfo-data
   uglifier (>= 1.3.0)
