@@ -66,7 +66,7 @@ gem 'square-dungeon-gen', '~> 1.5', '>= 1.5.3', :git => 'https://github.com/czug
 # gem 'square-dungeon-gen', path: '../square-dungeon-gen'
 
 gem 'haml-rails'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 # gem 'omniauth'
